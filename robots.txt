@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: https://aipose-atlas.pages.dev/sitemap.xml
-# redeploy 2026-11-06
+# 站点需要密码访问，不对外收录

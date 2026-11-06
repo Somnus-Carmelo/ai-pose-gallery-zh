@@ -62,7 +62,7 @@ const shouldEnableProxyByDefault = (provider?: ImageProviderId) =>
 
 const DEFAULT_API_CONFIG: ApiConfig = {
   activeProvider: 'gemini',
-  imagePassMode: 'url',
+  imagePassMode: 'base64',
   useProxy: false,
   stylePreset: 'realistic',
   sendStitchedSheet: false,

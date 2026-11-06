@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-pose-gallery.anhao.app/sitemap.xml
+Sitemap: https://aipose-atlas.pages.dev/sitemap.xml
+# redeploy 2026-11-06

@@ -1,5 +1,14 @@
+// Cloudflare Pages Functions 中间件：全站 HTTP Basic Auth，仅放行站内代理接口。
+// 注意：浏览器只在导航和图片/子资源请求上复用 Basic 认证缓存，fetch 请求不会携带凭据，
+// 因此对 /api/proxy 做鉴权会让前端调用恒定 401 并反复弹出密码框，这里必须放行。
 export async function onRequest(context) {
   const { request, next, env } = context;
+
+  const url = new URL(request.url);
+  if (url.pathname === '/api/proxy') {
+    return next();
+  }
+
   const user = env.BASIC_USER;
   const pass = env.BASIC_PASS;
   if (!user || !pass) {

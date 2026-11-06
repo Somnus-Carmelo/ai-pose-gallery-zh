@@ -1579,9 +1579,11 @@ export async function generateCharacterImage(params: {
   // 1) 用户显式选择了 base64 模式
   // 2) 或者勾选了「附带三合一 Canvas 合成图」（本地动态绘制无公网 URL）
   // 3) 或者使用 Gemini Native 原生接口 / OpenAI multipart/form-data 模式
+  // 4) Qwen/DashScope 一律转 Base64：站点开启访问密码后，其服务器无法下载受保护的站内图片 URL
   const needBase64 =
     config.imagePassMode === 'base64' ||
     config.sendStitchedSheet ||
+    provider === 'qwen' ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||
     (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits')
 
